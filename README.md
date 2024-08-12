@@ -65,10 +65,10 @@ from riden import Riden
 r = Riden(port="/dev/ttyUSB0", baudrate=115200, address=1)
 
 # Getters and Setters are available
+r.set_v_set(4.20)
+r.set_i_set(0.69)
 print(r.get_v_set())
 print(r.get_i_set())
-r.set_v_set(4.20)
-r.set_i_set(0.50)
 
 # Mass polling is available as well
 # This reduces the number of reads to the device
@@ -78,7 +78,7 @@ print(r.i_set)
 ```
 
 There's also a `Bootloader` class that can be used to update the firmware.  
-This is based on [tjko/riden-flashrool](https://github.com/tjko/riden-flashtool)
+This is based on [tjko/riden-flashtool](https://github.com/tjko/riden-flashtool)
 ```
 $ riden --port=/dev/ttyUSB0 --baudrate 115200 --firmware path/to/firmware.bin
 ```

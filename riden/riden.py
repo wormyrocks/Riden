@@ -71,6 +71,11 @@ class Riden:
             self.v_multi = 1000
             self.i_multi = 10000
             self.p_multi = 1000
+        elif self.id == 60066:
+            self.type = "RK6006"
+            self.v_multi = 100
+            self.i_multi = 1000
+            self.p_multi = 100
 
         self.update()
 
@@ -270,6 +275,8 @@ class Riden:
         return self.wh
 
     def get_date_time(self) -> datetime:
+        if self.type == "RK6006":
+            return
         d = self.read(R.YEAR, 6)
         self.datetime = datetime(d[0], d[1], d[2], d[3], d[4], d[5])
         return self.datetime
